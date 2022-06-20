@@ -11,6 +11,8 @@ export const AddToChecklist = (data) => {
         dispatchLoading(dispatch, Add_To_Checklist);
 
         //cek kalo data checklist user so ada ato blum
+        //const uid = 
+
         FIREBASE
         .database()
         .ref('checklists/'+data.uid)
@@ -53,7 +55,8 @@ export const AddToChecklist = (data) => {
                 const checklistMain = {
                     user: data.uid,
                     date: new Date().toDateString(),
-                    price: data.vendor.packagePrice
+                    price: data.vendor.packagePrice,
+                    isApprove: false,
 
                     //nd jdi dp total sdh jo nd ush pakee. comment di page checklist
 
@@ -96,6 +99,8 @@ export const checklistDetail = (data) => {
             description: data.description,
             //tmbh akg uid user le jo ddlm orders
             user: data.uid,
+            //test tmbh le di 'order/'+data.vendor.id
+            //vendorId: data.id
 
         }
 

@@ -15,7 +15,9 @@ import {
   //checklist
   Checklist,
   //reserve
-  Reserve
+  Reserve,
+  //chat
+  Chat
  } from '../pages';
 
 
@@ -84,6 +86,12 @@ const Router = () => {
         name="Reserve" 
         component={Reserve}
         options={{headerShown: true, title: 'Reserve'}}
+        />
+
+        <Stack.Screen 
+        name="Chat" 
+        component={Chat}
+        options={{headerShown: true, title: 'Chat'}}
         />
     </Stack.Navigator>
   )

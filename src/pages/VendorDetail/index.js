@@ -119,27 +119,31 @@ class VendorDetail extends Component {
           </View>
           */}
           
-
+          <View style={styles.formAndButton}>
           <TextInput
-           title ="Name" 
-           placeholder="Type your full name"
+           title ="Description" 
+           placeholder="Description..."
            value={description}
-          onChangeText={(description) => this.setState({description})}
+           onChangeText={(description) => this.setState({description})}
           />
-
+          <Gap height={25}/>
           <Button 
-            title ="Add To Checklist" 
+            title ="Reserve" 
             onPress={() => this.addToChecklist()} 
             //loading={saveChecklistLoading}
           />
           <Gap height={15}/>
-
+          {/*
           <Button 
             title ="Reserve" 
             onPress={() => this.props.navigation.navigate('Reserve', {vendor})} 
             //loading={saveChecklistLoading}
           />
+          */}
+          
           <Gap height={15}/>
+          </View>
+          
           
           {/*
           console.log("namePackage : ", namePackage)
@@ -235,6 +239,7 @@ const styles = StyleSheet.create({
 },
 packageWrapper: {
   marginHorizontal: 30,
+  marginBottom: 20,
 },
 nameAndPrice: {
   flexDirection: 'row',
@@ -243,5 +248,8 @@ nameAndPrice: {
 inputDesc: {
   marginHorizontal: 30,
   marginVertical: 10,
+},
+formAndButton: {
+  marginHorizontal: 30,
 }
 })

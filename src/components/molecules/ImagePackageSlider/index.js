@@ -23,10 +23,16 @@ export default class ImagePackageSlider extends Component {
                     url: '',
                     props: {
                         source: this.props.imagesPackage[index]
+                        //source: {{uri: images}}
+                        
                     }
+                    
                 }
             ]
+            
         })
+        //console.log('image: ', this.setState())
+        
     }
 
   render() {
@@ -35,7 +41,8 @@ export default class ImagePackageSlider extends Component {
     return (
       <View>
         <SliderBox 
-            images={imagesPackage} 
+            //images={{uri: imagesPackage}} 
+            images={imagesPackage}
             //autoplay 
             circleLoop
             sliderBoxHeight={responsiveHeight(200)}
@@ -44,6 +51,7 @@ export default class ImagePackageSlider extends Component {
             dotColor={'#FFD0EC'}
             imageLoadingColor={'#F0F0F0'}
             onCurrentImagePressed={(index) => this.clickPreview(index)}
+            //onCurrentImagePressed={(index) => console.log(index)}
         />
         <Modal visible={openImage} transparent={true}>
             <ImageViewer 

@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView,} from 'react-native'
 import React, {Component} from 'react'
-import { Header, Gap, NavigationBottom, ButtonIcon, HistoryList } from '../../components'
+import { Header, Gap, NavigationBottom, ButtonIcon, HistoryList, Button } from '../../components'
 import { DummyChecklist } from '../../data'
 
 export default class OnProgress extends Component {
@@ -19,6 +19,7 @@ export default class OnProgress extends Component {
             <Text style={styles.textHistory}>History</Text>
         </View>
         <HistoryList checklists={checklists}/>
+        <Button title="chat" onPress={() => this.props.navigation.navigate('Chat')}/>
         
       </View>
     )

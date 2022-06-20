@@ -13,6 +13,8 @@ import VendorDetail from "./VendorDetail";
 import Checklist from "./Checklist";
 //reserve
 import Reserve from "./Reserve"
+//chat
+import Chat from "./Chat"
 
 export {
     SplashScreen, 
@@ -30,5 +32,7 @@ export {
     Checklist,
     //reserve
     Reserve,
+    //Chat
+    Chat,
     
 };
