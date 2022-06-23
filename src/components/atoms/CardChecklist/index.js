@@ -19,18 +19,21 @@ const CardChecklist = ({checklist, navigation, checklistMain, id, dispatch}) => 
     <View style={styles.container} >
         <View style={styles.containWrapper}>
             <View style={styles.imageAndDescWrapper}>
-            <Image source={{uri : checklist.productChecklist.image}} style={styles.imageVendor}/>
+                <Image source={{uri : checklist.productChecklist.image}} style={styles.imageVendor}/>
 
-            <View style={styles.description}>
-            <Text style={styles.vendorName}>{checklist.productChecklist.name}</Text>
-            {/* cuma tambah packages[0] krna ada pake array mungkin nnti nda mo pake array krna
-            user cuma musti pilih kan 1 jenis paket */}
-            <Text style={styles.packageName}>{checklist.productChecklist.namePackage}</Text>
-            <Text style={styles.packageName}>Rp. {numberWithCommas(checklist.productChecklist.packagePrice)}</Text>
-            <Text style={styles.packageName}>Description :</Text>
-            <Text style={styles.packageName}>{checklist.description}</Text>
-            </View>
-
+                <View style={styles.description}>
+                    <Text style={styles.vendorName}>{checklist.productChecklist.name}</Text>
+                    {/* cuma tambah packages[0] krna ada pake array mungkin nnti nda mo pake array krna
+                    user cuma musti pilih kan 1 jenis paket */}
+                    <Text style={styles.packageName}>{checklist.productChecklist.namePackage}</Text>
+                    <Text style={styles.packageName}>Rp. {numberWithCommas(checklist.productChecklist.packagePrice)}</Text>
+                    
+                    <View style={styles.wd}>
+                        <Text style={styles.packageName}>Wedding Date: </Text>
+                        <Text style={styles.packageName}>{checklist.description}</Text>
+                        
+                    </View>
+                </View>
             </View>
             {/*
             <TouchableOpacity 
@@ -42,18 +45,13 @@ const CardChecklist = ({checklist, navigation, checklistMain, id, dispatch}) => 
             </TouchableOpacity>
             //ini so ganti jadi button cancel jdi pas cancel dia ta hpus smua.
             */}
-            
-            
         </View>
-        
+    
         <ButtonCancel
             title='Cancel'
             activeOpacity={0.6}
             onPress={() => hapusChecklist()}
-        />
-        
-        
-        
+        /> 
         
     </View>
   )
@@ -75,12 +73,12 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-        elevation: 5,
+        elevation: 4,
         marginHorizontal: 20,
         borderRadius: 7,
         
         paddingBottom: 10,
-        marginBottom: 5,
+        marginBottom: 15,
         //backgroundColor: 'yellow'
     },
     containWrapper:{
@@ -143,5 +141,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         //backgroundColor:'yellow',
         justifyContent: 'space-around',
+    },
+    wd: {
+        flexDirection: 'row',
     }
 })

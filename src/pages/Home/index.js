@@ -38,6 +38,7 @@ class Home extends Component {
   render() {
     const { navigation, name, keyword } = this.props
     console.log("ID Vendor : ", this.props.idVendor)
+    console.log("keyword : ", keyword)
     return (
       <View style={styles.page}>
         <Header navigation={navigation} page="Home"/>
@@ -57,7 +58,7 @@ class Home extends Component {
         </Text> 
         : <Text style={styles.label}>
           Select <Text>Vendor </Text>
-          {name ? name : "that you want"}
+          {name ? name : " "}
         </Text>
         }
         

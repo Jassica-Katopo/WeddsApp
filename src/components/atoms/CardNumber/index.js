@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         padding: 10,
         marginTop: 10,
+        marginHorizontal: 20,
     },
     textMyNumber: {
         color: 'black',

@@ -35,7 +35,7 @@ const MainApp = () => {
   return (
     <Tab.Navigator tabBar={props => <NavigationBottom {...props} />}>
         <Tab.Screen name="Home" component={Home} options={{headerShown: false}} />
-        <Tab.Screen name="History" component={OnProgress} options={{headerShown: false}} />
+        <Tab.Screen name="Status" component={OnProgress} options={{headerShown: false}} />
         <Tab.Screen name="Profile" component={Profile} options={{headerShown: false}}/>
       </Tab.Navigator>
   )

@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     //paddingRight: 20,
     //paddingHorizontal: 100,
     //marginHorizontal: 10,
-    marginHorizontal: 100,
+    marginHorizontal: 80,
    /*shadowColor: '#000',
         shadowOffset: {
             width: 0,

@@ -6,7 +6,7 @@ import { HomeNA, HomeA, ProgressNA, ProgressA, ProfileNA, ProfileA } from '../..
 const TabItem = ({isFocused, onPress, onLongPress, label}) => {
   const Icon = () => {
     if(label === "Home") return isFocused ? <HomeA/> : <HomeNA/>
-    if(label === "History") return isFocused ? <ProgressA/> : <ProgressNA/>
+    if(label === "Status") return isFocused ? <ProgressA/> : <ProgressNA/>
     if(label === "Profile") return isFocused ? <ProfileA/> : <ProfileNA/>
 
     return <HomeA/>

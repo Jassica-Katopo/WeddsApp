@@ -11,14 +11,16 @@ export default class Reserve extends Component {
     
       this.state = {
          profile: false,
-         price: this.props.route.params.price
+         price: this.props.route.params.price,
       }
     }
+
 
     componentDidMount(){
       this.getUserData()
     }
 
+    
     getUserData = () => {
       getData('user').then(res => {
         const data = res
@@ -32,9 +34,12 @@ export default class Reserve extends Component {
         }
       })
     }
+    
+
+    
 
   render() {
-    const { profile, price } = this.state
+    const { profile, price, isReserve } = this.state
     //cek klo data profile so mso
     //console.log("Profile : ", profile)
     const { navigation } = this.props
@@ -50,7 +55,7 @@ export default class Reserve extends Component {
             <Text style={styles.textPrice}>Rp. {numberWithCommas(price)}</Text>
         </View>
         <View style={styles.buttonPay}>
-        <Button title="Make A Payment"/>
+        <Button title="Make A Reservation" onPress={() => this.onReserve()} />
         </View>
         
 

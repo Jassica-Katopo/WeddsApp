@@ -5,8 +5,18 @@ import { Button, Checklist_List, InnerChecklist_List, Header2 } from '../../comp
 import { numberWithCommas, getData } from '../../utils'
 import { connect } from 'react-redux'
 import { getListChecklist } from '../../actions/ChecklistAction'
+import {CardNumber} from '../../components'
 
 class Checklist extends Component {
+
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       profile: false,
+       //price: this.props.route.params.price,
+    }
+  }
 
   componentDidMount(){
     getData('user').then((res) => {
@@ -14,6 +24,9 @@ class Checklist extends Component {
       if(res){
         //user sudah login
         this.props.dispatch(getListChecklist(res.uid))
+        this.setState({
+          profile: res
+        })
       }else{
         //user belum login dan harus navigate ke page signin
         this.props.navigation.replace("SignIn")
@@ -25,10 +38,11 @@ class Checklist extends Component {
     const { deleteChecklistResult } = this.props
     if(deleteChecklistResult && prevProps.deleteChecklistResult !== deleteChecklistResult) {
       getData('user').then((res) => {
-
+        //const data = res
         if(res){
           //user sudah login
           this.props.dispatch(getListChecklist(res.uid))
+          
         }else{
           //user belum login dan harus navigate ke page signin
           this.props.navigation.replace("SignIn")
@@ -41,24 +55,35 @@ class Checklist extends Component {
   render() {
     //const { checklist } = this.state
     //const { navigation } = this.props
-
+    const { profile } = this.state
     const{ getListChecklistResult, navigation } = this.props
 
     //console.log("Data Checklist : ", this.props.getListChecklistResult)
 
     return (
       <View style={styles.page}>
-        <Header2 title="Reserve"/>
-        <Text style={styles.textDetails}>Details :</Text>
+        <Header2 title="Reservation"/>
+
+        {/* yg di page reserve se pindah sini jo */}
+        <Text style={styles.textDetails}>Can this number be contacted ?</Text>
+        <Text style={styles.textBiasa}>Admin vendor will contact at your number</Text>
+        <CardNumber profile={profile} navigation={navigation}/>
+
+        <Text style={styles.textDetails}>Reservation Details :</Text>
         <Checklist_List {...this.props}/>
+
+        
+
+        
 
         {/*Button klo ada boleh mo ta next klo nda ada disable sbnrnya m sllu ada si dia mar biar jo*/}
         {getListChecklistResult ? 
         <View style={styles.buttonNext}>
         <Button 
-          title='Next' 
+          title='View Status' 
           activeOpacity={0.6}
-          onPress={() => this.props.navigation.navigate('Reserve', {price: getListChecklistResult.price})}
+          //onPress={() => this.props.navigation.navigate('Reserve', {price: getListChecklistResult.price})}
+          onPress={() => this.props.navigation.navigate('Status')}
         />
         </View>
         : <View style={styles.buttonNext}>
@@ -114,10 +139,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: 'black',
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 5,
   },
   buttonNext: {
     marginBottom: 20,
+  },
+  textBiasa: {
+    marginHorizontal: 20,
   }
 })
 {/*

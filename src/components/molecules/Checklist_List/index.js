@@ -14,11 +14,13 @@ const Checklist_List = ({
 
       {getListChecklistResult ? (
         //getListChecklistResult.orders
+        //hapus dp .orders
         Object.keys(getListChecklistResult.orders).map((key) => 
         {
           return(
             <CardChecklist 
               //getListChecklistResult.orders[key]
+              //hapus .orders[key]
               checklist={getListChecklistResult.orders[key]} 
               checklistMain={getListChecklistResult}
               key={key}
@@ -32,8 +34,8 @@ const Checklist_List = ({
       ) : getListChecklistError ? (
         <Text>{getListChecklistError}</Text>
       ) : (
-        <Button title="Back To Home" onPress={() => navigation.navigate('Home')}/>
-        //<Text style={styles.textChecklistEmpty}>Checklist Empty</Text>
+        //<Button title="Back To Home" onPress={() => navigation.navigate('Home')}/>
+        <Text style={styles.textChecklistEmpty}>Status Empty</Text>
         
       )}
 

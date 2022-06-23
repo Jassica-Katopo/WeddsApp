@@ -23,6 +23,9 @@ class VendorDetail extends Component {
       //uid: "" -> mungkin perlu sto pas smo add to checklist
       description: "",
       uid: "",
+      name: "",
+      image: null,
+      phone: "",
     }
   }
 
@@ -44,10 +47,14 @@ class VendorDetail extends Component {
     const { description } = this.state
 
     getData('user').then((res) => {
+      console.log(res);
       if(res){
         // simpan uid local storage ke state
         this.setState({
-          uid: res.uid
+          uid: res.uid,
+          name: res.name,
+          image: res.avatar,
+          phone: res.whatsapp
         })
         //validasi form kalo user btul" ada isi
         if(description){
@@ -55,7 +62,7 @@ class VendorDetail extends Component {
           this.props.dispatch(AddToChecklist(this.state))
           //console.log("Desc : ", description)
         }else{
-          Alert.alert('Error', 'Description Cannot Be Empty');
+          Alert.alert('Error', 'Wedding Date Cannot Be Empty');
         }
 
       }else{
@@ -121,14 +128,15 @@ class VendorDetail extends Component {
           
           <View style={styles.formAndButton}>
           <TextInput
-           title ="Description" 
-           placeholder="Description..."
+           title ="Wedding Date :" 
+           placeholder="DD-MM-YYYY"
            value={description}
+           keyboardType="number-pad"
            onChangeText={(description) => this.setState({description})}
           />
           <Gap height={25}/>
           <Button 
-            title ="Reserve" 
+            title ="Reservation" 
             onPress={() => this.addToChecklist()} 
             //loading={saveChecklistLoading}
           />
