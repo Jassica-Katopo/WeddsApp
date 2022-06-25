@@ -19,7 +19,9 @@ const CardHistory = ({checklist, navigation, checklistMain, id, dispatch}) => {
 
   return (
     <View style={styles.container} >
+        <Text style={styles.textDate}>{checklistMain.date}</Text>
         <View style={styles.containWrapper}>
+            
             <View style={styles.imageAndDescWrapper}>
                 <Image source={{uri : checklist.productChecklist.image}} style={styles.imageVendor}/>
 
@@ -34,9 +36,17 @@ const CardHistory = ({checklist, navigation, checklistMain, id, dispatch}) => {
                         <Text style={styles.packageName}>Wedding Date: </Text>
                         <Text style={styles.packageName}>{checklist.description}</Text>
                         
+                    </View>
+                    
+                    <View>
+                        {checklistMain.isReserve === true ? (
+                            <Text style={{color: '#E9D35F', marginTop: 8}}>Waiting for approval</Text>
+                        ) : null}
+                        {checklistMain.isApprove === true ? (
+                            <Text style={{color: '#5AD71F', marginTop: 8}}>Reservation Approved</Text>
+                        ) : null}
                         
                     </View>
-                    <Text>{checklist.isApprove}</Text>
                     
                 </View>
             </View>
@@ -150,6 +160,10 @@ const styles = StyleSheet.create({
     },
     wd: {
         flexDirection: 'row',
+    },
+    textDate: {
+        marginLeft: 10,
+        marginTop: 10,
     }
 })
 
