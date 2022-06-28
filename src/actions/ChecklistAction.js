@@ -37,11 +37,8 @@ export const AddToChecklist = data => {
                 .database()
                 .ref('checklists')
                 .child(data.uid)
-
                 .update(checklistMain)
-
                 //.set(checklistMain)
-
                 .then((response) => {
                     //response biar nda ta pake nd ppa
                     // simpan ke checklist detail

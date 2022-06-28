@@ -35,7 +35,7 @@ const HistoryList = ({
         <Text>{getListChecklistError}</Text>
       ) : (
         //<Button title="Back To Home" onPress={() => navigation.navigate('Home')}/>
-        <Text style={styles.textChecklistEmpty}>Checklist Empty</Text>
+        <Text style={styles.textChecklistEmpty}>Reservation Empty</Text>
         
       )}
 
