@@ -34,8 +34,8 @@ const Checklist_List = ({
       ) : getListChecklistError ? (
         <Text>{getListChecklistError}</Text>
       ) : (
-        //<Button title="Back To Home" onPress={() => navigation.navigate('Home')}/>
-        <Text style={styles.textChecklistEmpty}>Status Empty</Text>
+        <Button title="Back To Home" onPress={() => navigation.navigate('Home')}/>
+        //<Text style={styles.textChecklistEmpty}>Status Empty</Text>
         
       )}
 

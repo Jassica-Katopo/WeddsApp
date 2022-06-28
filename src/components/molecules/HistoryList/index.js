@@ -34,8 +34,8 @@ const HistoryList = ({
       ) : getListChecklistError ? (
         <Text>{getListChecklistError}</Text>
       ) : (
-        <Button title="Back To Home" onPress={() => navigation.navigate('Home')}/>
-        //<Text style={styles.textChecklistEmpty}>Checklist Empty</Text>
+        //<Button title="Back To Home" onPress={() => navigation.navigate('Home')}/>
+        <Text style={styles.textChecklistEmpty}>Checklist Empty</Text>
         
       )}
 
