@@ -29,7 +29,7 @@ class VendorDetail extends Component {
       vendor: this.props.route.params.allVendor,
       images: this.props.route.params.allVendor.image,
       imagesPackage: this.props.route.params.allVendor.imagePackage,
-      // dari admin pa tita nnti so nda usah pake aray. supaya dsini dp aray smo hapus
+      // dari admin nnti so nda usah pake aray. supaya dsini dp aray smo hapus
       //packagesVendor: this.props.route.params.allVendor.packages,
       //form -> nda pake form
       //uid: "" -> mungkin perlu sto pas smo add to checklist
@@ -152,8 +152,6 @@ class VendorDetail extends Component {
               <Gap height={5} />
               <Text style={styles.textDescription}>{vendor.description}</Text>
             </View>
-
-            {/tambah form keterangan/}
             {/*
           <View style={styles.inputDesc}>
           <InputDesc 

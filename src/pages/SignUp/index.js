@@ -59,9 +59,26 @@ class SignUp extends Component {
             //this.props.dispatch(SignUpUser(data, this.props.password))
             this.props.dispatch(SignUpUser(data, password))
 
-        }else{
+        }
+        if(!name && whatsapp && address && email && password){
+            Alert.alert("Error", "Name empty please input your name")
+        }
+        if(name && !whatsapp && address && email && password){
+            Alert.alert("Error", "Whatsapp empty please input your whatsapp number")
+        }
+        if(name && whatsapp && !address && email && password){
+            Alert.alert("Error", "Address empty please input your address")
+        }
+        if(name && whatsapp && address && !email && password){
+            Alert.alert("Error", "Email empty please input your email")
+        }
+        if(name && whatsapp && address && email && !password){
+            Alert.alert("Error", "Password empty please input your password")
+        }
+        else{
             Alert.alert("Error", "Fill your profile before sign up")
         }
+        
     }
     render() {
         const { name, whatsapp, address, email, password } = this.state
@@ -140,10 +157,6 @@ class SignUp extends Component {
 }
 
 const signInStateToProps = (state) => ({
-    //get profinsi...
-    //get kota..
-    //mapStateToProps
-    //signUpStateToProps so ta salah
     signUpLoading: state.AuthReducer.signUpLoading,
     signUpResult: state.AuthReducer.signUpResult,
     signUpError: state.AuthReducer.signUpError,
